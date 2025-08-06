@@ -74,7 +74,7 @@ class BasicService implements BasicServiceInterface
         $startedAt = new Timestamp();
         $startedAt->fromDateTime(new \DateTime());
         $event = new BackgroundResponseEvent();
-        $event->setState(State::PROCESS_STATE_PROCESS);
+        $event->setState(State::STATE_PROCESS);
         $event->setStartedAt($startedAt);
 
         for ($i = 0; $i < $in->getProcesses(); $i++) {
@@ -100,7 +100,7 @@ class BasicService implements BasicServiceInterface
 
         $completedAt = new Timestamp();
         $completedAt->fromDateTime(new \DateTime());
-        $event->setState(State::PROCESS_STATE_COMPLETE);
+        $event->setState(State::STATE_COMPLETE);
         $event->setCompletedAt($completedAt);
 
         $any = new Any();

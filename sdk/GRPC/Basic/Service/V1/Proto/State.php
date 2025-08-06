@@ -13,32 +13,32 @@ use UnexpectedValueException;
 class State
 {
     /**
-     * Generated from protobuf enum <code>PROCESS_STATE_UNSPECIFIED = 0;</code>
+     * Generated from protobuf enum <code>STATE_UNSPECIFIED = 0;</code>
      */
-    const PROCESS_STATE_UNSPECIFIED = 0;
+    const STATE_UNSPECIFIED = 0;
     /**
-     * Generated from protobuf enum <code>PROCESS_STATE_PROCESS = 1;</code>
+     * Generated from protobuf enum <code>STATE_PROCESS = 1;</code>
      */
-    const PROCESS_STATE_PROCESS = 1;
+    const STATE_PROCESS = 1;
     /**
-     * Generated from protobuf enum <code>PROCESS_STATE_COMPLETE = 2;</code>
+     * Generated from protobuf enum <code>STATE_COMPLETE = 2;</code>
      */
-    const PROCESS_STATE_COMPLETE = 2;
+    const STATE_COMPLETE = 2;
     /**
-     * Generated from protobuf enum <code>PROCESS_STATE_ERROR = 3;</code>
+     * Generated from protobuf enum <code>STATE_ERROR = 3;</code>
      */
-    const PROCESS_STATE_ERROR = 3;
+    const STATE_ERROR = 3;
     /**
-     * Generated from protobuf enum <code>PROCESS_STATE_COMPLETE_WITH_ERROR = 4;</code>
+     * Generated from protobuf enum <code>STATE_COMPLETE_WITH_ERROR = 4;</code>
      */
-    const PROCESS_STATE_COMPLETE_WITH_ERROR = 4;
+    const STATE_COMPLETE_WITH_ERROR = 4;
 
     private static $valueToName = [
-        self::PROCESS_STATE_UNSPECIFIED => 'PROCESS_STATE_UNSPECIFIED',
-        self::PROCESS_STATE_PROCESS => 'PROCESS_STATE_PROCESS',
-        self::PROCESS_STATE_COMPLETE => 'PROCESS_STATE_COMPLETE',
-        self::PROCESS_STATE_ERROR => 'PROCESS_STATE_ERROR',
-        self::PROCESS_STATE_COMPLETE_WITH_ERROR => 'PROCESS_STATE_COMPLETE_WITH_ERROR',
+        self::STATE_UNSPECIFIED => 'STATE_UNSPECIFIED',
+        self::STATE_PROCESS => 'STATE_PROCESS',
+        self::STATE_COMPLETE => 'STATE_COMPLETE',
+        self::STATE_ERROR => 'STATE_ERROR',
+        self::STATE_COMPLETE_WITH_ERROR => 'STATE_COMPLETE_WITH_ERROR',
     ];
 
     public static function name($value)
