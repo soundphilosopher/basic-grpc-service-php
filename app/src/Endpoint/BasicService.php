@@ -88,6 +88,7 @@ class BasicService implements BasicServiceInterface
             $response = Future\awaitAny($features);
             $event->getResponses()[] = $response;
 
+            // error_log("Event: {$event->serializeToJsonString()}");
             $this->log->info("Event: {$event->serializeToJsonString()}");
 
             foreach ($features as $key => $feature) {
