@@ -7,18 +7,18 @@ namespace App\Endpoint;
 use App\Utils\ExternalCall;
 use App\Utils\Talk;
 use Google\Protobuf\Timestamp;
-use GRPC\Basic\Service\V1\Proto\BackgroundResponseEvent;
+use Basic\Service\V1\Proto\BackgroundResponseEvent;
 use Google\Protobuf\Any;
-use GRPC\Basic\Service\V1\Proto\BackgroundRequest;
-use GRPC\Basic\Service\V1\Proto\BackgroundResponse;
-use GRPC\Basic\Service\V1\Proto\HelloRequest;
-use GRPC\Basic\Service\V1\Proto\HelloResponse;
-use GRPC\Basic\Service\V1\Proto\HelloResponseEvent;
-use GRPC\Basic\Service\V1\Proto\State;
-use GRPC\Basic\Service\V1\Proto\TalkRequest;
-use GRPC\Basic\Service\V1\Proto\TalkResponse;
-use GRPC\Basic\V1\Proto\BasicServiceInterface;
-use GRPC\Io\CloudEvents\V1\Proto\CloudEvent;
+use Basic\Service\V1\Proto\BackgroundRequest;
+use Basic\Service\V1\Proto\BackgroundResponse;
+use Basic\Service\V1\Proto\HelloRequest;
+use Basic\Service\V1\Proto\HelloResponse;
+use Basic\Service\V1\Proto\HelloResponseEvent;
+use Basic\Service\V1\Proto\State;
+use Basic\Service\V1\Proto\TalkRequest;
+use Basic\Service\V1\Proto\TalkResponse;
+use Basic\V1\Proto\BasicServiceInterface;
+use Io\CloudEvents\V1\Proto\CloudEvent;
 use Psr\Log\LoggerInterface;
 use Spiral\RoadRunner\GRPC;
 use Amp\Future;
@@ -86,7 +86,8 @@ class BasicService implements BasicServiceInterface
 
         while ($features) {
             $response = Future\awaitAny($features);
-            $event->getResponses()[] = $response;
+            $responses = $event->getResponses();
+            $responses[] = $response;
 
             // error_log("Event: {$event->serializeToJsonString()}");
             $this->log->info("Event: {$event->serializeToJsonString()}");

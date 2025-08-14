@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package basic.service.v1;
 
-option php_namespace = "GRPC\\Basic\\Service\\V1\\Proto";
-option php_metadata_namespace = "GRPC\\Basic\\Service\\V1\\GPBMetadata";
+option php_namespace = "Basic\\Service\\V1\\Proto";
+option php_metadata_namespace = "Basic\\Service\\V1\\GPBMetadata";
 
 import "io/cloudevents/v1/cloudevents.proto";
 import "google/protobuf/timestamp.proto";

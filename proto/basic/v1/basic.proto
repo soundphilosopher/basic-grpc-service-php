@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package basic.v1;
 
-option php_namespace = "GRPC\\Basic\\V1\\Proto";
-option php_metadata_namespace = "GRPC\\Basic\\V1\\GPBMetadata";
+option php_namespace = "Basic\\V1\\Proto";
+option php_metadata_namespace = "Basic\\V1\\GPBMetadata";
 
 import "basic/service/v1/service.proto";
 

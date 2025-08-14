@@ -30,7 +30,10 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/src",
-            "GRPC\\": "sdk/GRPC"
+            "Basic\\": "sdk/Basic",
+            "Io\\": "sdk/Io",
+            "Grpc\\": "sdk/Grpc",
+            "Google\\": "sdk/Google"
         }
     },
     "autoload-dev": {
@@ -60,7 +63,8 @@
         "psalm": "psalm",
         "psalm:baseline": "psalm --set-baseline=psalm-baseline.xml",
         "test": "phpunit",
-        "test-coverage": "phpunit --coverage"
+        "test-coverage": "phpunit --coverage",
+        "buf:generate": "buf generate --clean && buf build --as-file-descriptor-set --output sdk/descriptor.bin"
     },
     "minimum-stability": "dev",
     "prefer-stable": true

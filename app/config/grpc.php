@@ -22,13 +22,13 @@ return [
      * Path, where generated DTO files put.
      * Default: null
      */
-    "generatedPath" => directory("root") . "/generated",
+    "generatedPath" => directory("root") . "/gen",
 
     /**
      * Base namespace for generated proto files.
      * Default: null
      */
-    "namespace" => "GRPC",
+    "namespace" => null,
 
     /**
      * Paths to proto files, that should be compiled into PHP by "grpc:generate" console command.
@@ -37,6 +37,9 @@ return [
         directory("root") . "/proto/basic/v1/basic.proto",
         directory("root") . "/proto/basic/service/v1/service.proto",
         directory("root") . "/proto/io/cloudevents/v1/cloudevents.proto",
+        directory("root") . "/proto/google/protobuf/descriptor.proto",
+        directory("root") . "/proto/grpc/reflection/v1/reflection.proto",
+        directory("root") . "/proto/grpc/reflection/v1alpha/reflection.proto",
     ],
 
     /**

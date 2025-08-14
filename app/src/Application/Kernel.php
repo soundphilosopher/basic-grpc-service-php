@@ -15,6 +15,8 @@ use Spiral\RoadRunnerBridge\Bootloader as RoadRunnerBridge;
 use Spiral\Scaffolder\Bootloader\ScaffolderBootloader;
 use Spiral\Tokenizer\Bootloader\TokenizerListenerBootloader;
 
+use App\Application\Bootloader\ServiceRegistryBootloader;
+
 /**
  * @psalm-suppress ClassMustBeFinal
  */
@@ -63,6 +65,9 @@ class Kernel extends \Spiral\Framework\Kernel
 
             // Fast code prototyping
             PrototypeBootloader::class,
+
+            // Add ServiceRegistryBootloader
+            ServiceRegistryBootloader::class,
         ];
     }
 }

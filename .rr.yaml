@@ -7,7 +7,7 @@ rpc:
   listen: "tcp://127.0.0.1:6001"
 
 grpc:
-  listen: "tcp://127.0.0.1:9001"
+  listen: "tcp://127.0.0.1:9443"
   tls:
     key: "certs/local.key"
     cert: "certs/local.crt"
@@ -15,6 +15,9 @@ grpc:
     - "proto/basic/v1/basic.proto"
     - "proto/basic/service/v1/service.proto"
     - "proto/io/cloudevents/v1/cloudevents.proto"
+    - "proto/google/protobuf/descriptor.proto"
+    - "proto/grpc/reflection/v1/reflection.proto"
+    - "proto/grpc/reflection/v1alpha/reflection.proto"
   pool:
     num_workers: 4
     max_jobs: 0
