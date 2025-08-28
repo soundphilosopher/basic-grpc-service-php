@@ -5,6 +5,7 @@ A demonstration gRPC service built with PHP using the Spiral Framework and RoadR
 [![PHP Version](https://img.shields.io/badge/php-%3E%3D8.1-787CB5)](https://php.net)
 [![Spiral Framework](https://img.shields.io/badge/spiral-framework-blue)](https://spiral.dev)
 [![gRPC](https://img.shields.io/badge/gRPC-enabled-green)](https://grpc.io)
+[![protobuf](https://img.shields.io/badge/protobuf-enabled-green)](https://protobuf.dev)
 [![Buf](https://img.shields.io/badge/buf-build-orange)](https://buf.build)
 
 ## 📋 Overview
