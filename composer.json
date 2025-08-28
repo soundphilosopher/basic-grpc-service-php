@@ -11,6 +11,7 @@
     "require": {
         "php": ">=8.1",
         "ext-grpc": "*",
+	"ext-protobuf": "*",
         "ext-mbstring": "*",
         "ext-sockets": "*",
         "amphp/amp": "^3.1",
