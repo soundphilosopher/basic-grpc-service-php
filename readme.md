@@ -1,4 +1,4 @@
-🚀 Basic gRPC Service in PHP
+# 🚀 Basic gRPC Service in PHP
 
 <div align="center">
 
