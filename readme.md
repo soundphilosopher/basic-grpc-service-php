@@ -1,12 +1,19 @@
 🚀 Basic gRPC Service in PHP
 
-A demonstration gRPC service built with PHP using the Spiral Framework and RoadRunner, showcasing unary RPC methods with CloudEvents integration. ✨
+<div align="center">
 
-[![PHP Version](https://img.shields.io/badge/php-%3E%3D8.1-787CB5)](https://php.net)
+![PHP Version](https://img.shields.io/badge/php-%3E%3D8.1-787CB5?style=for-the-badge&logo=php&logoColor=white)
+![gRPC](https://img.shields.io/badge/gRPC-00ADD8?style=for-the-badge&logo=grpc&logoColor=white)
+![Protocol Buffers](https://img.shields.io/badge/Protobuf-336791?style=for-the-badge&logo=protocol-buffers&logoColor=white)
+![CloudEvents](https://img.shields.io/badge/CloudEvents-0078D4?style=for-the-badge&logo=icloud&logoColor=white)
+
 [![Spiral Framework](https://img.shields.io/badge/spiral-framework-blue)](https://spiral.dev)
-[![gRPC](https://img.shields.io/badge/gRPC-enabled-green)](https://grpc.io)
-[![protobuf](https://img.shields.io/badge/protobuf-enabled-green)](https://protobuf.dev)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Buf](https://img.shields.io/badge/buf-build-orange)](https://buf.build)
+
+*A demonstration gRPC service built with PHP using the Spiral Framework and RoadRunner, showcasing unary RPC methods with CloudEvents integration. ✨*
+
+</div>
 
 ## 📋 Overview
 
@@ -82,7 +89,7 @@ service BasicService {
 
 1. **Clone the repository** 📥:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/soundphilosopher/basic-grpc-service-php
    cd basic-grpc-service-php
    ```
 
@@ -174,28 +181,6 @@ plugins:
 - **Purpose**: Simulates async background processing with multiple concurrent tasks
 
 ## 🧪 Testing
-
-### Using grpcurl 🔧
-
-1. **List available services** 📋:
-   ```bash
-   buf curl https://127.0.0.1:9443 --list-services
-   ```
-
-2. **Test Hello method** 👋:
-   ```bash
-   buf curl -d '{"message": "World"}' https://127.0.0.1:9443 basic.v1.BasicService/Hello
-   ```
-
-3. **Test Talk method** 💭:
-   ```bash
-   buf curl -d '{"message": "Hello, how are you?"}' https://127.0.0.1:9443 basic.v1.BasicService/Talk
-   ```
-
-4. **Test Background method** ⚙️:
-   ```bash
-   buf curl -d '{"processes": 3}' https://127.0.0.1:9443 basic.v1.BasicService/Background
-   ```
 
 ### 🎯 Unit Tests
 

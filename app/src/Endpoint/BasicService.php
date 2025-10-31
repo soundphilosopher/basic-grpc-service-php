@@ -36,15 +36,15 @@ class BasicService implements BasicServiceInterface
         $event = new HelloResponseEvent();
         $event->setGreeting("Hello, {$in->getMessage()}!");
 
-        $protoData = new Any();
-        $protoData->pack($event);
+        $any = new Any();
+        $any->pack($event);
 
         $cloudevent = new CloudEvent();
         $cloudevent->setId(\uniqid());
         $cloudevent->setSource("basic/v1/hello");
         $cloudevent->setType("greeting");
         $cloudevent->setSpecVersion("1.0");
-        $cloudevent->setProtoData($protoData);
+        $cloudevent->setProtoData($any);
 
         $response = new HelloResponse();
         $response->setCloudEvent($cloudevent);

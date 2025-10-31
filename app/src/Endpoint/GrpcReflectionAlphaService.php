@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Endpoint;
 
-use Grpc\Reflection\V1alpha\Proto\ServerReflectionInterface;
-use Grpc\Reflection\V1alpha\Proto\ServerReflectionRequest;
-use Grpc\Reflection\V1alpha\Proto\ServerReflectionResponse;
-use Grpc\Reflection\V1alpha\Proto\FileDescriptorResponse;
-use Grpc\Reflection\V1alpha\Proto\ExtensionNumberResponse;
-use Grpc\Reflection\V1alpha\Proto\ListServiceResponse;
+use Grpc\Reflection\v1alpha\Proto\ServerReflectionInterface;
+use Grpc\Reflection\v1alpha\Proto\ServerReflectionRequest;
+use Grpc\Reflection\v1alpha\Proto\ServerReflectionResponse;
+use Grpc\Reflection\v1alpha\Proto\FileDescriptorResponse;
+use Grpc\Reflection\v1alpha\Proto\ExtensionNumberResponse;
+use Grpc\Reflection\v1alpha\Proto\ListServiceResponse;
 use Spiral\RoadRunner\GRPC;
 use App\Utils\ServiceRegistry;
 
