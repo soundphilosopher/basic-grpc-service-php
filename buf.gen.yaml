@@ -1,9 +1,9 @@
 version: v2
 plugins:
   # generate PHP code/procedures
-  - remote: buf.build/community/roadrunner-server-php-grpc:v5.0.2
-    out: sdk
   - remote: buf.build/grpc/php:v1.76.0
     out: sdk
-  - remote: buf.build/protocolbuffers/php:v33.0
+  - remote: buf.build/protocolbuffers/php:v33.2
+    out: sdk
+  - remote: buf.build/community/roadrunner-server-php-grpc:v5.0.2
     out: sdk
