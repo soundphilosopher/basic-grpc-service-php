@@ -1,7 +1,5 @@
 # 🚀 Basic gRPC Service in PHP
 
-<div align="center">
-
 ![PHP Version](https://img.shields.io/badge/php-%3E%3D8.1-787CB5?style=for-the-badge&logo=php&logoColor=white)
 ![gRPC](https://img.shields.io/badge/gRPC-00ADD8?style=for-the-badge&logo=grpc&logoColor=white)
 ![Protocol Buffers](https://img.shields.io/badge/Protobuf-336791?style=for-the-badge&logo=protocol-buffers&logoColor=white)
@@ -12,8 +10,6 @@
 [![Buf](https://img.shields.io/badge/buf-build-orange)](https://buf.build)
 
 *A demonstration gRPC service built with PHP using the Spiral Framework and RoadRunner, showcasing unary RPC methods with CloudEvents integration. ✨*
-
-</div>
 
 ## 📋 Overview
 
