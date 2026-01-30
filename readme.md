@@ -28,7 +28,7 @@ This project demonstrates a basic gRPC service implementation in PHP, featuring:
 
 ## 🏗️ Architecture
 
-```basic-grpc-service-php/app/src/Endpoint/BasicService.php#L1-20
+```php
 <?php
 
 declare(strict_types=1);
@@ -55,7 +55,7 @@ use Basic\V1\Proto\BasicServiceInterface;
 
 The service implements three main RPC methods:
 
-```basic-grpc-service-php/proto/basic/v1/basic.proto#L1-12
+```proto
 syntax = "proto3";
 
 package basic.v1;
@@ -115,7 +115,7 @@ service BasicService {
 
 ### 🛣️ RoadRunner Configuration
 
-```basic-grpc-service-php/.rr.yaml#L1-15
+```yaml
 version: "3"
 
 logs:
@@ -136,7 +136,7 @@ grpc:
 
 ### 🦬 Buf Configuration
 
-```basic-grpc-service-php/buf.gen.yaml#L1-10
+```yaml
 version: v2
 plugins:
   # generate PHP code/procedures
@@ -231,7 +231,9 @@ basic-grpc-service-php/
 ### ☁️ CloudEvents Integration
 All responses are wrapped in CloudEvents format, providing standardized event metadata:
 
-```basic-grpc-service-php/app/src/Endpoint/BasicService.php#L35-45
+```php
+<?php
+//...
         $protoData = new Any();
         $protoData->pack($event);
 
@@ -246,7 +248,10 @@ All responses are wrapped in CloudEvents format, providing standardized event me
 ### ⚡ Asynchronous Processing
 The Background method demonstrates concurrent processing using Amphp:
 
-```basic-grpc-service-php/app/src/Endpoint/BasicService.php#L71-81
+```php
+<?php
+//...
+
         for ($i = 0; $i < $in->getProcesses(); $i++) {
             $features[$i] = async(function () use ($externalService, $i) {
                 delay(random_int(1, 3));
@@ -262,7 +267,10 @@ The Background method demonstrates concurrent processing using Amphp:
 ### 🤖 ELIZA Chatbot
 The Talk utility implements a classic ELIZA chatbot with pattern matching:
 
-```basic-grpc-service-php/app/src/Utils/Talk.php#L50-60
+```php
+<?php
+//...
+
     private static array $requestInputRegexToResponseOptions = [
         "/i need (.*)/" => [
             "Why do you need %s?",
