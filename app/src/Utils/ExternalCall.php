@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Utils;
 
-use GRPC\Basic\Service\V1\Proto\SomeServiceData;
-use GRPC\Basic\Service\V1\Proto\SomeServiceResponse;
+use Basic\Service\V1\Proto\SomeServiceData;
+use Basic\Service\V1\Proto\SomeServiceResponse;
 
-class ExternalCall
+final class ExternalCall
 {
     public function call(string $name, string $version): SomeServiceResponse
     {

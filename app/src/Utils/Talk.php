@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Utils;
 
-class Talk
+final class Talk
 {
     private static array $goodbyeInputSet = [
         "bye" => true,
@@ -287,7 +287,7 @@ class Talk
 
     private static function reflect(string $fragment): string
     {
-        $words = preg_split("/\s+/", $fragment);
+        $words = \preg_split("/\s+/", $fragment) ?: [];
         foreach ($words as $i => $word) {
             $lower = strtolower($word);
             if (isset(self::$reflectedWords[$lower])) {

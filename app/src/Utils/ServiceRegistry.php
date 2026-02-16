@@ -77,7 +77,7 @@ final class ServiceRegistry
         }
         $files = $this->collectFileWithDeps($file);
         return array_map(
-            static fn(FileDescriptorProto $f) => $f->serializeToString(),
+            static fn(FileDescriptorProto $f): mixed => $f->serializeToString(),
             $files,
         );
     }
@@ -89,12 +89,12 @@ final class ServiceRegistry
     public function getFileContainingSymbolBytes(string $fqSymbol): ?array
     {
         $file = $this->symbolToFile[$fqSymbol] ?? null;
-        if (!$file) {
+        if ($file === null) {
             return null;
         }
         $files = $this->collectFileWithDeps($file);
         return array_map(
-            static fn(FileDescriptorProto $f) => $f->serializeToString(),
+            static fn(FileDescriptorProto $f): mixed => $f->serializeToString(),
             $files,
         );
     }
@@ -108,7 +108,7 @@ final class ServiceRegistry
         int $number,
     ): ?array {
         $byNum = $this->extensionsByExtendee[$containingType] ?? null;
-        if (!$byNum) {
+        if ($byNum === null) {
             return null;
         }
         $file = $byNum[$number] ?? null;
@@ -117,7 +117,7 @@ final class ServiceRegistry
         }
         $files = $this->collectFileWithDeps($file);
         return array_map(
-            static fn(FileDescriptorProto $f) => $f->serializeToString(),
+            static fn(FileDescriptorProto $f): mixed => $f->serializeToString(),
             $files,
         );
     }
@@ -125,12 +125,13 @@ final class ServiceRegistry
     /**
      * getAllExtensionNumbersOfType(registry, value) -> int[]
      * - $value is a fully-qualified message name (<package>.<Message>[.<Nested>...])
+     * @return int[]
      */
     public function getAllExtensionNumbersOfType(string $fqMessage): array
     {
         $byNum = $this->extensionsByExtendee[$fqMessage] ?? [];
         // keys are numbers, values are files; return the numbers as an unsorted list
-        return array_values(array_keys($byNum));
+        return array_keys($byNum);
     }
 
     // ----------------------
@@ -250,7 +251,7 @@ final class ServiceRegistry
     ): void {
         $extendee = ltrim($ext->getExtendee(), ".");
         $number = $ext->getNumber();
-        if ($extendee !== "" && $number !== null) {
+        if ($extendee !== "") {
             $this->extensionsByExtendee[$extendee][$number] = $file;
         }
 
@@ -272,14 +273,15 @@ final class ServiceRegistry
     {
         $result = [];
         $seen = [];
-        $stack = [$root];
+        // $stack = [$root];
 
         // We’ll do an explicit DFS to preserve a dependency-first order.
+        /** @return void */
         $visit = function (FileDescriptorProto $file) use (
             &$visit,
             &$result,
             &$seen,
-        ) {
+        ): void {
             $name = $file->getName();
             if (isset($seen[$name])) {
                 return;

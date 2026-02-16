@@ -25,10 +25,11 @@ use Amp\Future;
 use function Amp\async;
 use function Amp\delay;
 
-class BasicService implements BasicServiceInterface
+final class BasicService implements BasicServiceInterface
 {
     public function __construct(private LoggerInterface $log) {}
 
+    #[\Override]
     public function Hello(
         GRPC\ContextInterface $ctx,
         HelloRequest $in,
@@ -52,6 +53,7 @@ class BasicService implements BasicServiceInterface
         return $response;
     }
 
+    #[\Override]
     public function Talk(
         GRPC\ContextInterface $ctx,
         TalkRequest $in,
@@ -64,6 +66,7 @@ class BasicService implements BasicServiceInterface
         return $response;
     }
 
+    #[\Override]
     public function Background(
         GRPC\ContextInterface $ctx,
         BackgroundRequest $in,

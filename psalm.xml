@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <psalm
     errorLevel="2"
     resolveFromConfigFile="true"
@@ -16,9 +16,10 @@
     errorBaseline="psalm-baseline.xml"
 >
     <projectFiles>
-        <directory name="app/src"/>
+        <directory name="app/src" />
         <ignoreFiles>
-            <directory name="vendor"/>
+            <directory name="vendor" />
+            <directory name="sdk" />
         </ignoreFiles>
     </projectFiles>
 </psalm>

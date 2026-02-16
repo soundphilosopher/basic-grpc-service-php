@@ -13,10 +13,11 @@ use Grpc\Reflection\v1alpha\Proto\ListServiceResponse;
 use Spiral\RoadRunner\GRPC;
 use App\Utils\ServiceRegistry;
 
-class GrpcReflectionAlphaService implements ServerReflectionInterface
+final class GrpcReflectionAlphaService implements ServerReflectionInterface
 {
     public function __construct(private ServiceRegistry $serviceRegistry) {}
 
+    #[\Override]
     public function ServerReflectionInfo(
         GRPC\ContextInterface $ctx,
         ServerReflectionRequest $in,
@@ -25,9 +26,10 @@ class GrpcReflectionAlphaService implements ServerReflectionInterface
 
         if ($filename = $in->getFileByFilename()) {
             if (
-                $file = $this->serviceRegistry->getFileByFilenameBytes(
-                    $filename,
-                )
+                $file =
+                    $this->serviceRegistry->getFileByFilenameBytes(
+                        $filename,
+                    ) !== null
             ) {
                 $fileDescriptorResp = new FileDescriptorResponse([$file]);
                 $resp->setFileDescriptorResponse($fileDescriptorResp);
@@ -36,23 +38,25 @@ class GrpcReflectionAlphaService implements ServerReflectionInterface
 
         if ($symbols = $in->getFileContainingSymbol()) {
             if (
-                $files = $this->serviceRegistry->getFileContainingSymbolBytes(
-                    $symbols,
-                )
+                $files =
+                    $this->serviceRegistry->getFileContainingSymbolBytes(
+                        $symbols,
+                    ) !== null
             ) {
-                $fileDescriptorResp = new FileDescriptorResponse($files);
+                $fileDescriptorResp = new FileDescriptorResponse([$files]);
                 $resp->setFileDescriptorResponse($fileDescriptorResp);
             }
         }
 
         if ($extension = $in->getFileContainingExtension()) {
             if (
-                $files = $this->serviceRegistry->getFileContainingExtensionBytes(
-                    $extension->getContainingType(),
-                    $extension->getExtensionNumber(),
-                )
+                $files =
+                    $this->serviceRegistry->getFileContainingExtensionBytes(
+                        $extension->getContainingType(),
+                        $extension->getExtensionNumber(),
+                    ) !== null
             ) {
-                $fileDescriptorResp = new FileDescriptorResponse($files);
+                $fileDescriptorResp = new FileDescriptorResponse([$files]);
                 $resp->setFileDescriptorResponse($fileDescriptorResp);
             }
         }
